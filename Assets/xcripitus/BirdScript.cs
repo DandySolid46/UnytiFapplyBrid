@@ -18,15 +18,18 @@ public class BirdScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if ((rotation > -45)&Game.isPlaying){
-			rotation -= Pow(1.3f, rotationVelocity) * Time.deltaTime;
+		if (/*(rotation > -45)&*/Game.isPlaying){
+			rotation -= Min(10,Pow(1.3f, rotationVelocity) * Time.deltaTime);
 			rotationVelocity += 1 ;
 		}
 		if (Input.GetKeyDown(KeyCode.Space)) {
+			if (rotation<-290){
+				ScoreSystem.AddPoint();
+			}
 			Game.isPlaying = rb2d.simulated = true;
 			rb2d.velocity = Vector2.up * speed ;
 			rotationVelocity = 0;
-			rotation = 45f;
+			rotation = 60f;
 		} else if (!Game.isPlaying) {
 			rb2d.simulated = false;
 			rb2d.velocity = Vector2.zero;
@@ -53,6 +56,7 @@ public class BirdScript : MonoBehaviour {
 				Destroy(pipes[i].gameObject);
 
 			ScoreSystem.ResetScore();
+			ScoreSystem.SaveScore();
 		}
 	}
 	void OnTriggerEnter2D(Collider2D c) {

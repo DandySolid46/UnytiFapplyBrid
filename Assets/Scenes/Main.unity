@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 423847586}
   - component: {fileID: 423847585}
   - component: {fileID: 423847588}
+  - component: {fileID: 423847590}
   m_Layer: 0
   m_Name: master
   m_TagString: Untagged
@@ -273,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423847584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8568897, y: -0.64441615, z: 0.047649525}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -302,6 +303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4708df7f68f45046ba326627ee7556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &423847590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423847584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1d221a7aebb8948842c70cc18885a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Background: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  rotationVelocity: 0
+  rotationFallTime: 0
 --- !u!50 &835394354
 Rigidbody2D:
   serializedVersion: 4

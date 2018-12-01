@@ -16,6 +16,10 @@ public class ScoreSystem : MonoBehaviour {
 		}
 		instance = this;
 	}
+	void Start(){
+		HighScore = PlayerPrefs.GetInt("highscore");
+		ResetScore();
+	}
 	public static void AddPoint(){
 		++score;
 		Get().scoreText.text="Score:"+score+"   High score:"+HighScore;
@@ -29,5 +33,8 @@ public class ScoreSystem : MonoBehaviour {
 		}
 		score=0;
 		Get().scoreText.text = "Score:0   High score:"+HighScore;
+	}
+	public static void SaveScore(){
+		PlayerPrefs.SetInt("highscore",HighScore);
 	}
 }

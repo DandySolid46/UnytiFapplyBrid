@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\xcripitus\Background.cs" />
      <Compile Include="Assets\xcripitus\BirdScript.cs" />
      <Compile Include="Assets\xcripitus\Game.cs" />
      <Compile Include="Assets\xcripitus\PipeSpawner.cs" />
