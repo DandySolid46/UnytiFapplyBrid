@@ -6,6 +6,7 @@ public class Game:MonoBehaviour{
 		return instance;
     }
     public static bool isPlaying = false;
+		public static bool isTyping = false;
     void Awake(){
 		if (instance!= null){
 			DestroyImmediate(this);

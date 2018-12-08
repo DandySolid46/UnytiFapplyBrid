@@ -22,8 +22,8 @@ public class BirdScript : MonoBehaviour {
 			rotation -= Min(10,Pow(1.3f, rotationVelocity) * Time.deltaTime);
 			rotationVelocity += 1 ;
 		}
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			if (rotation<-290){
+		if (!Game.isTyping&&Input.GetKeyDown(KeyCode.Space)) {
+			if ((rotation<-290) && (ScoreSystem.GetScore()>0)){
 				ScoreSystem.AddPoint();
 			}
 			Game.isPlaying = rb2d.simulated = true;

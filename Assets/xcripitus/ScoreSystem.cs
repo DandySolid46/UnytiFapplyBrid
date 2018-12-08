@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+
 public class ScoreSystem : MonoBehaviour {
 	private static ScoreSystem instance;
 	public static ScoreSystem Get(){
@@ -24,7 +26,7 @@ public class ScoreSystem : MonoBehaviour {
 		++score;
 		Get().scoreText.text="Score:"+score+"   High score:"+HighScore;
 	}
-	public int GetScore(){
+	public static int GetScore(){
 		return score;
 	}
 	public static void ResetScore(){
@@ -35,6 +37,15 @@ public class ScoreSystem : MonoBehaviour {
 		Get().scoreText.text = "Score:0   High score:"+HighScore;
 	}
 	public static void SaveScore(){
-		PlayerPrefs.SetInt("highscore",HighScore);
+		var highscores = new List<int>(10);
+		var names= new List<string>(10);
+		for (int i = 0;i<10;++i){
+			highscores[i]=PlayerPrefs.GetInt("highscore"+i,0);
+			names[i]=PlayerPrefs.GetString("name"+i,"AAA");
+		}
+		for(int i = 0; i<10;++i){
+		PlayerPrefs.SetInt("highscore"+i,highscores[i]);
+		PlayerPrefs.SetString("name"+i,names[i]);
+		}
 	}
 }
